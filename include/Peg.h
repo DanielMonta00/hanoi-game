@@ -1,18 +1,20 @@
 #ifndef PEG_H
 #define PEG_H
 
-#include <SFML/Graphics.hpp>
+#include "Shape.h"
 
-class Peg {
+class Peg : public Shape {
 public:
-    Peg(float x, float y);  // Constructor to set the position
+    Peg(float x, float y);
     // Constructor to set the size and position of the peg
-    Peg(float width, float height, float x, float y);  // Uncomment if you want to set size
-
-    void draw(sf::RenderWindow& window);  // Method to draw the peg on the window
+    Peg(float width, float height, float x, float y);  
+    void draw(sf::RenderWindow& window) override;
+    void setPosition(float x, float y) override;
+    sf::Vector2f getPosition() const override;
 
 private:
-    sf::RectangleShape shape;  // Rectangle representing the peg
+    sf::RectangleShape shape;  // Peg is a rectangle
 };
 
 #endif // PEG_H
+

@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/HanoiGame.dir/src/Cursor.cpp.o"
+  "CMakeFiles/HanoiGame.dir/src/Cursor.cpp.o.d"
   "CMakeFiles/HanoiGame.dir/src/Disk.cpp.o"
   "CMakeFiles/HanoiGame.dir/src/Disk.cpp.o.d"
   "CMakeFiles/HanoiGame.dir/src/Game.cpp.o"

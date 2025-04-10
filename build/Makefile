@@ -129,6 +129,30 @@ HanoiGame/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/HanoiGame.dir/build.make CMakeFiles/HanoiGame.dir/build
 .PHONY : HanoiGame/fast
 
+src/Cursor.o: src/Cursor.cpp.o
+.PHONY : src/Cursor.o
+
+# target to build an object file
+src/Cursor.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/HanoiGame.dir/build.make CMakeFiles/HanoiGame.dir/src/Cursor.cpp.o
+.PHONY : src/Cursor.cpp.o
+
+src/Cursor.i: src/Cursor.cpp.i
+.PHONY : src/Cursor.i
+
+# target to preprocess a source file
+src/Cursor.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/HanoiGame.dir/build.make CMakeFiles/HanoiGame.dir/src/Cursor.cpp.i
+.PHONY : src/Cursor.cpp.i
+
+src/Cursor.s: src/Cursor.cpp.s
+.PHONY : src/Cursor.s
+
+# target to generate assembly for a file
+src/Cursor.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/HanoiGame.dir/build.make CMakeFiles/HanoiGame.dir/src/Cursor.cpp.s
+.PHONY : src/Cursor.cpp.s
+
 src/Disk.o: src/Disk.cpp.o
 .PHONY : src/Disk.o
 
@@ -258,6 +282,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... HanoiGame"
+	@echo "... src/Cursor.o"
+	@echo "... src/Cursor.i"
+	@echo "... src/Cursor.s"
 	@echo "... src/Disk.o"
 	@echo "... src/Disk.i"
 	@echo "... src/Disk.s"

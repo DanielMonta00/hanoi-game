@@ -1,6 +1,7 @@
 CMakeFiles/HanoiGame.dir/src/Disk.cpp.o: \
  /home/vdani/hanoi-game/src/Disk.cpp /usr/include/stdc-predef.h \
- /home/vdani/hanoi-game/include/Disk.h /usr/include/SFML/Graphics.hpp \
+ /home/vdani/hanoi-game/include/Disk.h \
+ /home/vdani/hanoi-game/include/Shape.h /usr/include/SFML/Graphics.hpp \
  /usr/include/SFML/Window.hpp /usr/include/SFML/System.hpp \
  /usr/include/SFML/Config.hpp /usr/include/SFML/System/Clock.hpp \
  /usr/include/SFML/System/Export.hpp /usr/include/SFML/System/Time.hpp \

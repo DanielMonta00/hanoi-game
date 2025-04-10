@@ -18,3 +18,11 @@ Peg::Peg(float width, float height, float x, float y) {
 void Peg::draw(sf::RenderWindow& window) {
     window.draw(shape);  // Draw the peg on the window
 }
+
+void Peg::setPosition(float x, float y) {
+    shape.setPosition(x, y);  // Set position of peg
+}
+
+sf::Vector2f Peg::getPosition() const {
+    return shape.getPosition();  // Return the position of the peg
+}

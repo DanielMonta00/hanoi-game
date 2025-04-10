@@ -1,14 +1,18 @@
 // main.cpp
 #include <SFML/Graphics.hpp>
-#include <Peg.h>
-#include <Disk.h>
+#include "Peg.h"
+#include "Disk.h"
+#include "Cursor.h"
 
 const float PEG_WIDTH = 20.0f;  // Width of the peg
 const float PEG_HEIGHT = 200.0f;  // Height of the peg
+const float PEG_DISTANCE = 250.0f;  // Distance between pegs
+
 const float DISK_HEIGHT = 20.0f;  // Height of the disk
+
 const float PEG1_X = 150.0f;  // X position of peg 1
-const float PEG2_X = 400.0f;  // X position of peg 2
-const float PEG3_X = 650.0f;  // X position of peg 3
+const float PEG2_X = PEG1_X+PEG_DISTANCE;  // X position of peg 2
+const float PEG3_X = PEG1_X+2*PEG_DISTANCE;  // X position of peg 3
 const float PEG_Y = 300.0f;  // Y position of peg 1
 // const float DISK_WIDTH = 100.0f;  // Width of the disk
 
@@ -26,6 +30,18 @@ int main() {
     Disk disk2(100.0f, DISK_HEIGHT, sf::Color::Green, PEG1_X-100.0f/2+PEG_WIDTH/2,PEG_Y+PEG_HEIGHT-DISK_HEIGHT);  // Medium disk on peg 1
     Disk disk3(80.0f,  DISK_HEIGHT, sf::Color::Blue, PEG1_X-80.0f/2+PEG_WIDTH/2,PEG_Y+PEG_HEIGHT-2*DISK_HEIGHT);   // Small disk on peg 1
 
+    // Create a cursor at the initial position of peg 1
+    Cursor cursor(150.0f+10.0f, 280.0f, 0,PEG_DISTANCE);  // Cursor starts at peg 1
+
+
+    // Variables to track key press states
+
+    bool leftKeyPressed = false;  // Flag to track if the left key is pressed
+    bool rightKeyPressed = false;  // Flag to track if the right key is pressed
+    // Set the frame rate limit to 60 FPS
+    window.setFramerateLimit(60);  // Limit the frame rate to 60 frames per second
+    
+
     // Game loop — runs while the window is open
     while (window.isOpen()) {
         // Event handling loop
@@ -34,7 +50,28 @@ int main() {
             if (event.type == sf::Event::Closed) {
                 window.close();  // Close the window if the user presses the close button
             }
+            if (event.type == sf::Event::KeyPressed) {
+                // Check for left and right arrow key presses and ensure one press is registered
+                if (event.key.code == sf::Keyboard::Left && !leftKeyPressed) {
+                    cursor.moveLeft();  // Move the cursor left
+                    leftKeyPressed = true;  // Set the key press state to true
+                }
+                if (event.key.code == sf::Keyboard::Right && !rightKeyPressed) {
+                    cursor.moveRight();  // Move the cursor right
+                    rightKeyPressed = true;  // Set the key press state to true
+                }
+            }
+            if (event.type == sf::Event::KeyReleased) {
+                // Reset key states when the keys are released
+                if (event.key.code == sf::Keyboard::Left) {
+                    leftKeyPressed = false;
+                }
+                if (event.key.code == sf::Keyboard::Right) {
+                    rightKeyPressed = false;
+                }
+            }
         }
+
 
         // Clear the screen with a color (black)
         window.clear(sf::Color::Black);
@@ -48,6 +85,8 @@ int main() {
          disk1.draw(window);
          disk2.draw(window);
          disk3.draw(window);
+
+         cursor.draw(window);  // Draw the cursor
 
         // Display the content drawn to the window
         window.display();
