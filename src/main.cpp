@@ -7,9 +7,9 @@ int main() {
     sf::RenderWindow window(sf::VideoMode(800, 600), "Tower of Hanoi");
 
     // Create three pegs at different x positions but the same y position (400)
-    Peg peg1(150.0f, 400.0f);  // First peg at (150, 400)
-    Peg peg2(400.0f, 400.0f);  // Second peg at (400, 400)
-    Peg peg3(650.0f, 400.0f);  // Third peg at (650, 400)
+    Peg peg1(150.0f, 300.0f);  // First peg at (150, 300)
+    Peg peg2(400.0f, 300.0f);  // Second peg at (400, 300)
+    Peg peg3(650.0f, 300.0f);  // Third peg at (650, 300)
 
     // Game loop — runs while the window is open
     while (window.isOpen()) {
