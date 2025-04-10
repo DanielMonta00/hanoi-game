@@ -31,7 +31,7 @@ int main() {
     Disk disk3(80.0f,  DISK_HEIGHT, sf::Color::Blue, PEG1_X-80.0f/2+PEG_WIDTH/2,PEG_Y+PEG_HEIGHT-2*DISK_HEIGHT);   // Small disk on peg 1
 
     // Create a cursor at the initial position of peg 1
-    Cursor cursor(150.0f+10.0f, 280.0f, 0,PEG_DISTANCE);  // Cursor starts at peg 1
+    Cursor cursor(150.0f+10.0f, 240.0f, 0,PEG_DISTANCE);  // Cursor starts at peg 1
 
 
     // Variables to track key press states
