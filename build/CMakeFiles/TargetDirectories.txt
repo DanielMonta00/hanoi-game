@@ -1,0 +1,3 @@
+/home/vdani/hanoi-game/build/CMakeFiles/HanoiGame.dir
+/home/vdani/hanoi-game/build/CMakeFiles/edit_cache.dir
+/home/vdani/hanoi-game/build/CMakeFiles/rebuild_cache.dir
