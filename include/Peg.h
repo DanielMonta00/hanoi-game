@@ -1,20 +1,23 @@
 #ifndef PEG_H
 #define PEG_H
 
-#include "Shape.h"
+#include <SFML/Graphics.hpp>
+#include <vector>
+#include "Disk.h"
 
-class Peg : public Shape {
+class Peg : public sf::RectangleShape {
 public:
-    Peg(float x, float y);
-    // Constructor to set the size and position of the peg
-    Peg(float width, float height, float x, float y);  
-    void draw(sf::RenderWindow& window) override;
-    void setPosition(float x, float y) override;
-    sf::Vector2f getPosition() const override;
+    Peg(float width, float height , float x, float y);
+
+    void addDisk(Disk* disk);
+    Disk* removeDisk();
+    bool hasDisks() const;
+    std::vector<Disk*> getDisks() const;
+
+    void drawWithDisks(sf::RenderWindow& window);
 
 private:
-    sf::RectangleShape shape;  // Peg is a rectangle
+    std::vector<Disk*> disks;
 };
 
-#endif // PEG_H
-
+#endif

@@ -1,28 +1,33 @@
 #include "Peg.h"
-//#include <SFML/Graphics.hpp>
 
-Peg::Peg(float x, float y) {
-    // Set the size and position of the peg
-    shape.setSize(sf::Vector2f(20.0f, 200.0f));  // Width = 20px, Height = 100px default size
-    shape.setFillColor(sf::Color::White);         // Set the peg color to white
-    shape.setPosition(x, y);                     // Set the position based on arguments
+Peg::Peg(float width, float height, float x, float y)
+    : sf::RectangleShape(sf::Vector2f(width, height)) {
+    setFillColor(sf::Color::White);
+    setPosition(x, y);
 }
 
-// Constructor to set the size and position of the peg
-Peg::Peg(float width, float height, float x, float y) {
-    shape.setSize(sf::Vector2f(width, height));  // Set width and height of the peg  
-    shape.setFillColor(sf::Color::White);         // Set the peg color to white
-    shape.setPosition(x, y);                     // Set the position based on arguments
+void Peg::addDisk(Disk* disk) {
+    disks.push_back(disk);
 }
 
-void Peg::draw(sf::RenderWindow& window) {
-    window.draw(shape);  // Draw the peg on the window
+Disk* Peg::removeDisk() {
+    if (disks.empty()) return nullptr;
+    Disk* top = disks.back();
+    disks.pop_back();
+    return top;
 }
 
-void Peg::setPosition(float x, float y) {
-    shape.setPosition(x, y);  // Set position of peg
+bool Peg::hasDisks() const {
+    return !disks.empty();
 }
 
-sf::Vector2f Peg::getPosition() const {
-    return shape.getPosition();  // Return the position of the peg
+std::vector<Disk*> Peg::getDisks() const {
+    return disks;
+}
+
+void Peg::drawWithDisks(sf::RenderWindow& window) {
+    window.draw(*this);
+    for (auto& disk : disks) {
+        window.draw(*disk);
+    }
 }

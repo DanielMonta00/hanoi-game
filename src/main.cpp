@@ -31,7 +31,7 @@ int main() {
     Disk disk3(80.0f,  DISK_HEIGHT, sf::Color::Blue, PEG1_X-80.0f/2+PEG_WIDTH/2,PEG_Y+PEG_HEIGHT-2*DISK_HEIGHT);   // Small disk on peg 1
 
     // Create a cursor at the initial position of peg 1
-    Cursor cursor(150.0f+10.0f, 240.0f, 0,PEG_DISTANCE);  // Cursor starts at peg 1
+    Cursor cursor(150.0f+10.0f, 240.0f,PEG_DISTANCE);  // Cursor starts at peg 1
 
 
     // Variables to track key press states
@@ -77,16 +77,18 @@ int main() {
         window.clear(sf::Color::Black);
 
         // Draw the three pegs
-        peg1.draw(window);
-        peg2.draw(window);
-        peg3.draw(window);
+        window.draw(peg1);
+        window.draw(peg2);
+        window.draw(peg3);
 
          // Draw the disks
-         disk1.draw(window);
-         disk2.draw(window);
-         disk3.draw(window);
 
-         cursor.draw(window);  // Draw the cursor
+        window.draw(disk1);
+        window.draw(disk2);
+        window.draw(disk3);
+
+
+         window.draw(cursor); // Draw the cursor
 
         // Display the content drawn to the window
         window.display();

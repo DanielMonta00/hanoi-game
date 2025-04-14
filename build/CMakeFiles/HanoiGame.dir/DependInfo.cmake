@@ -9,7 +9,6 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/vdani/hanoi-game/src/Cursor.cpp" "CMakeFiles/HanoiGame.dir/src/Cursor.cpp.o" "gcc" "CMakeFiles/HanoiGame.dir/src/Cursor.cpp.o.d"
-  "/home/vdani/hanoi-game/src/Disk.cpp" "CMakeFiles/HanoiGame.dir/src/Disk.cpp.o" "gcc" "CMakeFiles/HanoiGame.dir/src/Disk.cpp.o.d"
   "/home/vdani/hanoi-game/src/Game.cpp" "CMakeFiles/HanoiGame.dir/src/Game.cpp.o" "gcc" "CMakeFiles/HanoiGame.dir/src/Game.cpp.o.d"
   "/home/vdani/hanoi-game/src/Peg.cpp" "CMakeFiles/HanoiGame.dir/src/Peg.cpp.o" "gcc" "CMakeFiles/HanoiGame.dir/src/Peg.cpp.o.d"
   "/home/vdani/hanoi-game/src/Tower.cpp" "CMakeFiles/HanoiGame.dir/src/Tower.cpp.o" "gcc" "CMakeFiles/HanoiGame.dir/src/Tower.cpp.o.d"

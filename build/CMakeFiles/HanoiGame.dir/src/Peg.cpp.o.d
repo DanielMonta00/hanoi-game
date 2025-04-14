@@ -1,7 +1,6 @@
 CMakeFiles/HanoiGame.dir/src/Peg.cpp.o: \
  /home/vdani/hanoi-game/src/Peg.cpp /usr/include/stdc-predef.h \
- /home/vdani/hanoi-game/include/Peg.h \
- /home/vdani/hanoi-game/include/Shape.h /usr/include/SFML/Graphics.hpp \
+ /home/vdani/hanoi-game/include/Peg.h /usr/include/SFML/Graphics.hpp \
  /usr/include/SFML/Window.hpp /usr/include/SFML/System.hpp \
  /usr/include/SFML/Config.hpp /usr/include/SFML/System/Clock.hpp \
  /usr/include/SFML/System/Export.hpp /usr/include/SFML/System/Time.hpp \
@@ -235,4 +234,5 @@ CMakeFiles/HanoiGame.dir/src/Peg.cpp.o: \
  /usr/include/SFML/Graphics/Glsl.hpp /usr/include/SFML/Graphics/Glsl.inl \
  /usr/include/SFML/Graphics/Sprite.hpp \
  /usr/include/SFML/Graphics/Text.hpp \
- /usr/include/SFML/Graphics/VertexBuffer.hpp
+ /usr/include/SFML/Graphics/VertexBuffer.hpp \
+ /home/vdani/hanoi-game/include/Disk.h

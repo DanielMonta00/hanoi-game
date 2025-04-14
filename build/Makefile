@@ -153,30 +153,6 @@ src/Cursor.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/HanoiGame.dir/build.make CMakeFiles/HanoiGame.dir/src/Cursor.cpp.s
 .PHONY : src/Cursor.cpp.s
 
-src/Disk.o: src/Disk.cpp.o
-.PHONY : src/Disk.o
-
-# target to build an object file
-src/Disk.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/HanoiGame.dir/build.make CMakeFiles/HanoiGame.dir/src/Disk.cpp.o
-.PHONY : src/Disk.cpp.o
-
-src/Disk.i: src/Disk.cpp.i
-.PHONY : src/Disk.i
-
-# target to preprocess a source file
-src/Disk.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/HanoiGame.dir/build.make CMakeFiles/HanoiGame.dir/src/Disk.cpp.i
-.PHONY : src/Disk.cpp.i
-
-src/Disk.s: src/Disk.cpp.s
-.PHONY : src/Disk.s
-
-# target to generate assembly for a file
-src/Disk.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/HanoiGame.dir/build.make CMakeFiles/HanoiGame.dir/src/Disk.cpp.s
-.PHONY : src/Disk.cpp.s
-
 src/Game.o: src/Game.cpp.o
 .PHONY : src/Game.o
 
@@ -285,9 +261,6 @@ help:
 	@echo "... src/Cursor.o"
 	@echo "... src/Cursor.i"
 	@echo "... src/Cursor.s"
-	@echo "... src/Disk.o"
-	@echo "... src/Disk.i"
-	@echo "... src/Disk.s"
 	@echo "... src/Game.o"
 	@echo "... src/Game.i"
 	@echo "... src/Game.s"

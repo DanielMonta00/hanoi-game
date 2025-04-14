@@ -1,18 +1,24 @@
 #ifndef DISK_H
 #define DISK_H
 
-#include "Shape.h"
+#include <SFML/Graphics.hpp>
 
-class Disk : public Shape {
+class Disk : public sf::RectangleShape {
 public:
-    Disk(float width, float height, sf::Color color, float x, float y);
-    void draw(sf::RenderWindow& window) override;
-    void setPosition(float x, float y) override;
-    sf::Vector2f getPosition() const override;
+    Disk(float width, float height, sf::Color color, float x, float y)
+        : sf::RectangleShape(sf::Vector2f(width, height)), size(width) {
+        setFillColor(color);
+        setPosition(x, y);
+    }
+
+    float getSize() const {
+        return size;
+    }
 
 private:
-    sf::RectangleShape shape;  // Disk is a rectangle
+    float size;
 };
 
-#endif // DISK_H
+#endif
+
 
