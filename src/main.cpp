@@ -8,13 +8,17 @@ const float PEG_WIDTH = 20.0f;  // Width of the peg
 const float PEG_HEIGHT = 200.0f;  // Height of the peg
 const float PEG_DISTANCE = 250.0f;  // Distance between pegs
 
-const float DISK_HEIGHT = 20.0f;  // Height of the disk
+const float DISK_MIN_WIDTH = 80.0f;  // Width of the disks
+const float DISK_WIDTH_DIFF = 20.0f;  // Difference in width between disks
+const float DISK_HEIGHT = 20.0f;  // Height of the disks
 
 const float PEG1_X = 150.0f;  // X position of peg 1
 const float PEG2_X = PEG1_X+PEG_DISTANCE;  // X position of peg 2
 const float PEG3_X = PEG1_X+2*PEG_DISTANCE;  // X position of peg 3
+
 const float PEG_Y = 300.0f;  // Y position of peg 1
-// const float DISK_WIDTH = 100.0f;  // Width of the disk
+
+
 
 int main() {
     // Create a window with a size of 800x600 pixels and a title
@@ -26,10 +30,14 @@ int main() {
     Peg peg3(PEG_WIDTH, PEG_HEIGHT,PEG3_X, PEG_Y);  // Third peg at (650, 300)
 
     // Create disks with different widths, colors, and positions
-    Disk disk1(120.0f, DISK_HEIGHT, sf::Color::Red, PEG1_X-120.0f/2+PEG_WIDTH/2,PEG_Y+PEG_HEIGHT);  // Large disk on peg 1
-    Disk disk2(100.0f, DISK_HEIGHT, sf::Color::Green, PEG1_X-100.0f/2+PEG_WIDTH/2,PEG_Y+PEG_HEIGHT-DISK_HEIGHT);  // Medium disk on peg 1
-    Disk disk3(80.0f,  DISK_HEIGHT, sf::Color::Blue, PEG1_X-80.0f/2+PEG_WIDTH/2,PEG_Y+PEG_HEIGHT-2*DISK_HEIGHT);   // Small disk on peg 1
+    Disk disk1(DISK_MIN_WIDTH+2*DISK_WIDTH_DIFF, DISK_HEIGHT, sf::Color::Red, PEG1_X-120.0f/2+PEG_WIDTH/2,PEG_Y+PEG_HEIGHT,1);  // Large disk on peg 1
+    Disk disk2(DISK_MIN_WIDTH+DISK_WIDTH_DIFF, DISK_HEIGHT, sf::Color::Green, PEG1_X-100.0f/2+PEG_WIDTH/2,PEG_Y+PEG_HEIGHT-DISK_HEIGHT,1);  // Medium disk on peg 1
+    Disk disk3(DISK_MIN_WIDTH,  DISK_HEIGHT, sf::Color::Blue, PEG1_X-80.0f/2+PEG_WIDTH/2,PEG_Y+PEG_HEIGHT-2*DISK_HEIGHT,1);   // Small disk on peg 1
 
+    // Add disks to peg 1
+    peg1.addDisk(&disk1);
+    peg1.addDisk(&disk2);
+    peg1.addDisk(&disk3);
     // Create a cursor at the initial position of peg 1
     Cursor cursor(150.0f+10.0f, 240.0f,PEG_DISTANCE);  // Cursor starts at peg 1
 
@@ -81,11 +89,16 @@ int main() {
         window.draw(peg2);
         window.draw(peg3);
 
+        // Draw the disks on their respective pegs
+        peg1.drawWithDisks(window);  // Draw disks on peg 1
+        peg2.drawWithDisks(window);  // Draw disks on peg 2
+        peg3.drawWithDisks(window);  // Draw disks on peg 3
+
          // Draw the disks
 
-        window.draw(disk1);
-        window.draw(disk2);
-        window.draw(disk3);
+        // window.draw(disk1);
+        // window.draw(disk2);
+        // window.draw(disk3);
 
 
          window.draw(cursor); // Draw the cursor
