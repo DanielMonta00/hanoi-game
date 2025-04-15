@@ -1,5 +1,6 @@
 // main.cpp
 #include <SFML/Graphics.hpp>
+#include <iostream>
 #include "Peg.h"
 #include "Disk.h"
 #include "Cursor.h"
@@ -41,11 +42,12 @@ int main() {
     // Create a cursor at the initial position of peg 1
     Cursor cursor(150.0f+10.0f, 240.0f,PEG_DISTANCE);  // Cursor starts at peg 1
 
-
     // Variables to track key press states
 
     bool leftKeyPressed = false;  // Flag to track if the left key is pressed
     bool rightKeyPressed = false;  // Flag to track if the right key is pressed
+    bool upKeyPressed = false;  // Flag to track if the up key is pressed
+    bool downKeyPressed = false;  // Flag to track if the down key is pressed
     // Set the frame rate limit to 60 FPS
     window.setFramerateLimit(60);  // Limit the frame rate to 60 frames per second
     
@@ -61,10 +63,12 @@ int main() {
             if (event.type == sf::Event::KeyPressed) {
                 // Check for left and right arrow key presses and ensure one press is registered
                 if (event.key.code == sf::Keyboard::Left && !leftKeyPressed) {
+                    std::cout << "Left key pressed\n";
                     cursor.moveLeft();  // Move the cursor left
                     leftKeyPressed = true;  // Set the key press state to true
                 }
                 if (event.key.code == sf::Keyboard::Right && !rightKeyPressed) {
+                    std::cout << "Right key pressed\n";
                     cursor.moveRight();  // Move the cursor right
                     rightKeyPressed = true;  // Set the key press state to true
                 }
@@ -94,14 +98,9 @@ int main() {
         peg2.drawWithDisks(window);  // Draw disks on peg 2
         peg3.drawWithDisks(window);  // Draw disks on peg 3
 
-         // Draw the disks
+        // Draw the disks
 
-        // window.draw(disk1);
-        // window.draw(disk2);
-        // window.draw(disk3);
-
-
-         window.draw(cursor); // Draw the cursor
+        window.draw(cursor); // Draw the cursor
 
         // Display the content drawn to the window
         window.display();

@@ -6,6 +6,10 @@
 #include "Disk.h"
 
 class Peg : public sf::RectangleShape {
+
+private:
+    std::vector<Disk*> disks;  
+      
 public:
     Peg(float width, float height , float x, float y);
 
@@ -16,8 +20,7 @@ public:
 
     void drawWithDisks(sf::RenderWindow& window);
 
-private:
-    std::vector<Disk*> disks;
+
 };
 
 #endif
