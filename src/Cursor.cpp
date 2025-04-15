@@ -28,7 +28,7 @@ void Cursor::moveLeft() {
             setPosition(xPosition, yPosition);  // Update the cursor's graphical position
         }
         if (pickedDisk) {
-            pickedDisk->setPositionX(650.0f+10.0f); // Adjust the Y position to be above the cursor
+            pickedDisk->setPositionX(pickedDisk->getPositionX()+2*pegDistance); // Adjust the Y position to be above the cursor
         }
         }
     
@@ -51,7 +51,7 @@ void Cursor::moveRight() {
             setPosition(xPosition, yPosition);  // Update the cursor's graphical position
         }
         if (pickedDisk) {
-            pickedDisk->setPositionX(150.0f+10.0f); // Adjust the Y position to be above the cursor
+            pickedDisk->setPositionX(pickedDisk->getPositionX()-2*pegDistance); // Adjust the Y position to be above the cursor
         }
         }
     
