@@ -19,7 +19,7 @@ const float PEG3_X = PEG1_X+2*PEG_DISTANCE;  // X position of peg 3
 
 const float PEG_Y = 300.0f;  // Y position of peg 1
 
-
+const float NUM_DISKS = 3;  // Number of disks
 
 int main() {
     // Create a window with a size of 800x600 pixels and a title
@@ -36,11 +36,10 @@ int main() {
     pegs.push_back(&peg2);
     pegs.push_back(&peg3);
     
-
     // Create disks with different widths, colors, and positions
-    Disk disk1(DISK_MIN_WIDTH+2*DISK_WIDTH_DIFF, DISK_HEIGHT, sf::Color::Red, PEG1_X-120.0f/2+PEG_WIDTH/2,PEG_Y+PEG_HEIGHT,1);  // Large disk on peg 1
-    Disk disk2(DISK_MIN_WIDTH+DISK_WIDTH_DIFF, DISK_HEIGHT, sf::Color::Green, PEG1_X-100.0f/2+PEG_WIDTH/2,PEG_Y+PEG_HEIGHT-DISK_HEIGHT,1);  // Medium disk on peg 1
-    Disk disk3(DISK_MIN_WIDTH,  DISK_HEIGHT, sf::Color::Blue, PEG1_X-80.0f/2+PEG_WIDTH/2,PEG_Y+PEG_HEIGHT-2*DISK_HEIGHT,1);   // Small disk on peg 1
+    Disk disk1(DISK_MIN_WIDTH+2*DISK_WIDTH_DIFF, DISK_HEIGHT, sf::Color::Red, PEG1_X-120.0f/2+PEG_WIDTH/2,PEG_Y+PEG_HEIGHT-DISK_HEIGHT,1);  // Large disk on peg 1
+    Disk disk2(DISK_MIN_WIDTH+DISK_WIDTH_DIFF, DISK_HEIGHT, sf::Color::Green, PEG1_X-100.0f/2+PEG_WIDTH/2,PEG_Y+PEG_HEIGHT-2*DISK_HEIGHT,1);  // Medium disk on peg 1
+    Disk disk3(DISK_MIN_WIDTH,  DISK_HEIGHT, sf::Color::Blue, PEG1_X-80.0f/2+PEG_WIDTH/2,PEG_Y+PEG_HEIGHT-3*DISK_HEIGHT,1);   // Small disk on peg 1
 
     // Add disks to peg 1
     peg1.addDisk(&disk1);
@@ -127,9 +126,8 @@ int main() {
         peg2.drawWithDisks(window);  // Draw disks on peg 2
         peg3.drawWithDisks(window);  // Draw disks on peg 3
 
-        // Draw the disks
-
-        window.draw(cursor); // Draw the cursor and the picked disk
+        // Draw the cursor
+        window.draw(cursor); 
         if (cursor.getPickedDisk()) {
             window.draw(*cursor.getPickedDisk());  // Draw the picked disk
         }
