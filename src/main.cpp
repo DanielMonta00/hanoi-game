@@ -30,6 +30,13 @@ int main() {
     Peg peg2(PEG_WIDTH, PEG_HEIGHT,PEG2_X, PEG_Y);  // Second peg at (400, 300)
     Peg peg3(PEG_WIDTH, PEG_HEIGHT,PEG3_X, PEG_Y);  // Third peg at (650, 300)
 
+    // add pegs to a vector for easy access
+    std::vector<Peg*> pegs;
+    pegs.push_back(&peg1);
+    pegs.push_back(&peg2);
+    pegs.push_back(&peg3);
+    
+
     // Create disks with different widths, colors, and positions
     Disk disk1(DISK_MIN_WIDTH+2*DISK_WIDTH_DIFF, DISK_HEIGHT, sf::Color::Red, PEG1_X-120.0f/2+PEG_WIDTH/2,PEG_Y+PEG_HEIGHT,1);  // Large disk on peg 1
     Disk disk2(DISK_MIN_WIDTH+DISK_WIDTH_DIFF, DISK_HEIGHT, sf::Color::Green, PEG1_X-100.0f/2+PEG_WIDTH/2,PEG_Y+PEG_HEIGHT-DISK_HEIGHT,1);  // Medium disk on peg 1
@@ -72,6 +79,21 @@ int main() {
                     cursor.moveRight();  // Move the cursor right
                     rightKeyPressed = true;  // Set the key press state to true
                 }
+                if (event.key.code == sf::Keyboard::Up && !upKeyPressed) {
+                    std::cout << "Up key pressed\n";
+                    cursor.pickUpDisk(*pegs.at(cursor.getCurrentPeg()));  // Pick up a disk from peg 1
+                    upKeyPressed = true;  // Set the key press state to true
+                }
+                if (event.key.code == sf::Keyboard::Down && !downKeyPressed) {
+                    std::cout << "Down key pressed\n";
+                    cursor.placeDisk(*pegs.at(cursor.getCurrentPeg()));  // Place the disk on peg 
+                    //change disk position
+                    // get peg position
+                    float pegPosX = pegs.at(cursor.getCurrentPeg())->getPosition().x;
+                    // put disk
+                    pegs.at(cursor.getCurrentPeg())->getDisks().back()->setPositionX(pegPosX+PEG_WIDTH/2-pegs.at(cursor.getCurrentPeg())->getDisks().back()->getSize()/2);
+                    downKeyPressed = true;  // Set the key press state to true
+                }
             }
             if (event.type == sf::Event::KeyReleased) {
                 // Reset key states when the keys are released
@@ -80,6 +102,12 @@ int main() {
                 }
                 if (event.key.code == sf::Keyboard::Right) {
                     rightKeyPressed = false;
+                }
+                if (event.key.code == sf::Keyboard::Up) {
+                    upKeyPressed = false;
+                }
+                if (event.key.code == sf::Keyboard::Down) {
+                    downKeyPressed = false;
                 }
             }
         }

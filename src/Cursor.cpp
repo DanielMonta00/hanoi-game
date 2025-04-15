@@ -60,6 +60,15 @@ void Cursor::placeDisk(Peg& peg) {
             std::cout << "Can't place here (disk too large).\n";
         }
     }
+
+    
 }
 
+// Note: The pegDistance variable is used to determine the distance between pegs.
+// int Cursor::getCurrentPeg() const {
+//     return currentPeg;
+// }
+// void Cursor::setCurrentPeg(int peg) {
+//     currentPeg = peg;
+// }
 
