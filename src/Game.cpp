@@ -29,6 +29,14 @@ std::vector<Disk> Game::spawnDisks(int numDisks) {
     return disks;
 }
 
+// Function to check if the game is won
+
+bool Game::isGameWon(std::vector<Peg*> pegs, int numDisks) {
+    // Check if all disks are on the last peg
+    return pegs[2]->hasDisks() && pegs[2]->getDisks().size() == numDisks;
+}
+
+
 // bool Game::isGameWon() const {
 //     // Check if all disks are on the last peg
 //     return disks.size() == NUM_DISKS && ;
