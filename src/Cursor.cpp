@@ -16,6 +16,9 @@ void Cursor::moveLeft() {
         currentPeg--;
         xPosition -= pegDistance;
         setPosition(xPosition, yPosition);
+        if (pickedDisk) {
+            pickedDisk->setPositionX(pickedDisk->getPositionX()-pegDistance); // Adjust the Y position to be above the cursor
+        }
     }
     else {
         // If the cursor is at the leftmost peg, For example, you could wrap around to the rightmost peg
@@ -24,7 +27,11 @@ void Cursor::moveLeft() {
             xPosition = 650.0f+10.0f;  // Reset x position to the last peg's position
             setPosition(xPosition, yPosition);  // Update the cursor's graphical position
         }
+        if (pickedDisk) {
+            pickedDisk->setPositionX(650.0f+10.0f); // Adjust the Y position to be above the cursor
         }
+        }
+    
 }
 
 void Cursor::moveRight() {
@@ -32,6 +39,9 @@ void Cursor::moveRight() {
         currentPeg++;
         xPosition += pegDistance;
         setPosition(xPosition, yPosition);
+        if (pickedDisk) {
+            pickedDisk->setPositionX(pickedDisk->getPositionX()+pegDistance); // Adjust the Y position to be above the cursor
+        }
     }
     else {
         // If the cursor is at the rightmost peg, For example, you could wrap around to the rightmost peg
@@ -40,7 +50,11 @@ void Cursor::moveRight() {
             xPosition = 150.0f+10.0f;  // Reset x position to the last peg's position
             setPosition(xPosition, yPosition);  // Update the cursor's graphical position
         }
+        if (pickedDisk) {
+            pickedDisk->setPositionX(150.0f+10.0f); // Adjust the Y position to be above the cursor
         }
+        }
+    
 }
 
 void Cursor::pickUpDisk(Peg& peg) {
@@ -48,6 +62,14 @@ void Cursor::pickUpDisk(Peg& peg) {
         pickedDisk = peg.removeDisk();
         std::cout << "Picked up a disk.\n";
     }
+    //redraw the disk below the cursor
+    if (pickedDisk) {
+        pickedDisk->setPositionY(yPosition + 15); // Adjust the Y position to be above the cursor
+    }
+    else {
+        std::cout << "No disk to pick up.\n";
+    }
+    
 }
 
 void Cursor::placeDisk(Peg& peg) {

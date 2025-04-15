@@ -92,6 +92,7 @@ int main() {
                     float pegPosX = pegs.at(cursor.getCurrentPeg())->getPosition().x;
                     // put disk
                     pegs.at(cursor.getCurrentPeg())->getDisks().back()->setPositionX(pegPosX+PEG_WIDTH/2-pegs.at(cursor.getCurrentPeg())->getDisks().back()->getSize()/2);
+                    pegs.at(cursor.getCurrentPeg())->getDisks().back()->setPositionY(PEG_Y+PEG_HEIGHT-DISK_HEIGHT*pegs.at(cursor.getCurrentPeg())->getDisks().size());
                     downKeyPressed = true;  // Set the key press state to true
                 }
             }
@@ -128,7 +129,10 @@ int main() {
 
         // Draw the disks
 
-        window.draw(cursor); // Draw the cursor
+        window.draw(cursor); // Draw the cursor and the picked disk
+        if (cursor.getPickedDisk()) {
+            window.draw(*cursor.getPickedDisk());  // Draw the picked disk
+        }
 
         // Display the content drawn to the window
         window.display();
