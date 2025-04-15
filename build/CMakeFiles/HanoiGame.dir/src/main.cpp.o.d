@@ -239,4 +239,7 @@ CMakeFiles/HanoiGame.dir/src/main.cpp.o: \
  /home/vdani/hanoi-game/include/Disk.h \
  /home/vdani/hanoi-game/include/Disk.h \
  /home/vdani/hanoi-game/include/Cursor.h \
- /home/vdani/hanoi-game/include/Peg.h
+ /home/vdani/hanoi-game/include/Peg.h \
+ /home/vdani/hanoi-game/include/Game.hpp /usr/include/c++/13/stack \
+ /usr/include/c++/13/deque /usr/include/c++/13/bits/stl_deque.h \
+ /usr/include/c++/13/bits/deque.tcc /usr/include/c++/13/bits/stl_stack.h

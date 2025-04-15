@@ -17,7 +17,6 @@ const float PEG3_X = PEG1_X+2*PEG_DISTANCE;  // X position of peg 3
 
 const float PEG_Y = 300.0f;  // Y position of peg 1
 
-const float NUM_DISKS = 3;  // Number of disks
 
 std::vector<Disk> Game::spawnDisks(int numDisks) {
     std::vector<Disk> disks;
@@ -25,15 +24,15 @@ std::vector<Disk> Game::spawnDisks(int numDisks) {
         float width = DISK_MIN_WIDTH + i * DISK_WIDTH_DIFF;
         float height = DISK_HEIGHT;
         sf::Color color = sf::Color(255 - i * 50, 0 + i * 50, 0); // Example color gradient
-        disks.emplace_back(width, height, color, PEG1_X - width / 2 + PEG_WIDTH / 2, PEG_Y + PEG_HEIGHT - (i + 1) * DISK_HEIGHT);
+        disks.emplace_back(width, height, color, PEG1_X - width / 2 + PEG_WIDTH / 2, PEG_Y + PEG_HEIGHT - (numDisks-i) * DISK_HEIGHT);
     }
     return disks;
 }
 
-bool Game::isGameWon() const {
-    // Check if all disks are on the last peg
-    return disks.size() == NUM_DISKS && disks.back().getCurrentPeg() == 2;
-}
+// bool Game::isGameWon() const {
+//     // Check if all disks are on the last peg
+//     return disks.size() == NUM_DISKS && ;
+// }
 
 
 

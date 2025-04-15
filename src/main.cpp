@@ -4,6 +4,7 @@
 #include "Peg.h"
 #include "Disk.h"
 #include "Cursor.h"
+#include "Game.hpp"
 
 const float PEG_WIDTH = 20.0f;  // Width of the peg
 const float PEG_HEIGHT = 200.0f;  // Height of the peg
@@ -19,11 +20,15 @@ const float PEG3_X = PEG1_X+2*PEG_DISTANCE;  // X position of peg 3
 
 const float PEG_Y = 300.0f;  // Y position of peg 1
 
-const float NUM_DISKS = 3;  // Number of disks
+const float NUM_DISKS = 4;  // Number of disks
 
 int main() {
     // Create a window with a size of 800x600 pixels and a title
     sf::RenderWindow window(sf::VideoMode(800, 600), "Tower of Hanoi");
+
+    // Create game
+    Game game;
+    
 
     // Create three pegs at different x positions but the same y position (400)
     Peg peg1(PEG_WIDTH, PEG_HEIGHT,PEG1_X, PEG_Y);  // First peg at (150, 300)
@@ -35,16 +40,24 @@ int main() {
     pegs.push_back(&peg1);
     pegs.push_back(&peg2);
     pegs.push_back(&peg3);
+
+    //Spawn disks using game
+    
+    std::vector<Disk> disks = game.spawnDisks(NUM_DISKS);
+    // Add disks to the first peg
+    for (int i = NUM_DISKS-1; i >=0 ; --i) {
+        peg1.addDisk(&disks.at(i));
+    }
     
     // Create disks with different widths, colors, and positions
-    Disk disk1(DISK_MIN_WIDTH+2*DISK_WIDTH_DIFF, DISK_HEIGHT, sf::Color::Red, PEG1_X-120.0f/2+PEG_WIDTH/2,PEG_Y+PEG_HEIGHT-DISK_HEIGHT,1);  // Large disk on peg 1
-    Disk disk2(DISK_MIN_WIDTH+DISK_WIDTH_DIFF, DISK_HEIGHT, sf::Color::Green, PEG1_X-100.0f/2+PEG_WIDTH/2,PEG_Y+PEG_HEIGHT-2*DISK_HEIGHT,1);  // Medium disk on peg 1
-    Disk disk3(DISK_MIN_WIDTH,  DISK_HEIGHT, sf::Color::Blue, PEG1_X-80.0f/2+PEG_WIDTH/2,PEG_Y+PEG_HEIGHT-3*DISK_HEIGHT,1);   // Small disk on peg 1
+    // Disk disk1(DISK_MIN_WIDTH+2*DISK_WIDTH_DIFF, DISK_HEIGHT, sf::Color::Red, PEG1_X-120.0f/2+PEG_WIDTH/2,PEG_Y+PEG_HEIGHT-DISK_HEIGHT,1);  // Large disk on peg 1
+    // Disk disk2(DISK_MIN_WIDTH+DISK_WIDTH_DIFF, DISK_HEIGHT, sf::Color::Green, PEG1_X-100.0f/2+PEG_WIDTH/2,PEG_Y+PEG_HEIGHT-2*DISK_HEIGHT,1);  // Medium disk on peg 1
+    // Disk disk3(DISK_MIN_WIDTH,  DISK_HEIGHT, sf::Color::Blue, PEG1_X-80.0f/2+PEG_WIDTH/2,PEG_Y+PEG_HEIGHT-3*DISK_HEIGHT,1);   // Small disk on peg 1
 
     // Add disks to peg 1
-    peg1.addDisk(&disk1);
-    peg1.addDisk(&disk2);
-    peg1.addDisk(&disk3);
+    // peg1.addDisk(&disk1);
+    // peg1.addDisk(&disk2);
+    // peg1.addDisk(&disk3);
     // Create a cursor at the initial position of peg 1
     Cursor cursor(150.0f+10.0f, 240.0f,PEG_DISTANCE);  // Cursor starts at peg 1
 

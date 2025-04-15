@@ -305,6 +305,7 @@ CMakeFiles/HanoiGame.dir/src/Cursor.cpp.o: /home/vdani/hanoi-game/src/Cursor.cpp
 CMakeFiles/HanoiGame.dir/src/Game.cpp.o: /home/vdani/hanoi-game/src/Game.cpp \
   /home/vdani/hanoi-game/include/Disk.h \
   /home/vdani/hanoi-game/include/Game.hpp \
+  /home/vdani/hanoi-game/include/Peg.h \
   /usr/include/SFML/Config.hpp \
   /usr/include/SFML/Graphics.hpp \
   /usr/include/SFML/Graphics/BlendMode.hpp \
@@ -910,6 +911,7 @@ CMakeFiles/HanoiGame.dir/src/Tower.cpp.o: /home/vdani/hanoi-game/src/Tower.cpp \
 CMakeFiles/HanoiGame.dir/src/main.cpp.o: /home/vdani/hanoi-game/src/main.cpp \
   /home/vdani/hanoi-game/include/Cursor.h \
   /home/vdani/hanoi-game/include/Disk.h \
+  /home/vdani/hanoi-game/include/Game.hpp \
   /home/vdani/hanoi-game/include/Peg.h \
   /usr/include/SFML/Config.hpp \
   /usr/include/SFML/Graphics.hpp \
@@ -1007,6 +1009,7 @@ CMakeFiles/HanoiGame.dir/src/main.cpp.o: /home/vdani/hanoi-game/src/main.cpp \
   /usr/include/c++/13/bits/cpp_type_traits.h \
   /usr/include/c++/13/bits/cxxabi_forced.h \
   /usr/include/c++/13/bits/cxxabi_init_exception.h \
+  /usr/include/c++/13/bits/deque.tcc \
   /usr/include/c++/13/bits/erase_if.h \
   /usr/include/c++/13/bits/exception.h \
   /usr/include/c++/13/bits/exception_defines.h \
@@ -1044,6 +1047,7 @@ CMakeFiles/HanoiGame.dir/src/main.cpp.o: /home/vdani/hanoi-game/src/main.cpp \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
   /usr/include/c++/13/bits/stl_construct.h \
+  /usr/include/c++/13/bits/stl_deque.h \
   /usr/include/c++/13/bits/stl_function.h \
   /usr/include/c++/13/bits/stl_heap.h \
   /usr/include/c++/13/bits/stl_iterator.h \
@@ -1052,6 +1056,7 @@ CMakeFiles/HanoiGame.dir/src/main.cpp.o: /home/vdani/hanoi-game/src/main.cpp \
   /usr/include/c++/13/bits/stl_map.h \
   /usr/include/c++/13/bits/stl_multimap.h \
   /usr/include/c++/13/bits/stl_pair.h \
+  /usr/include/c++/13/bits/stl_stack.h \
   /usr/include/c++/13/bits/stl_tempbuf.h \
   /usr/include/c++/13/bits/stl_tree.h \
   /usr/include/c++/13/bits/stl_uninitialized.h \
@@ -1077,6 +1082,7 @@ CMakeFiles/HanoiGame.dir/src/main.cpp.o: /home/vdani/hanoi-game/src/main.cpp \
   /usr/include/c++/13/cwctype \
   /usr/include/c++/13/debug/assertions.h \
   /usr/include/c++/13/debug/debug.h \
+  /usr/include/c++/13/deque \
   /usr/include/c++/13/exception \
   /usr/include/c++/13/ext/aligned_buffer.h \
   /usr/include/c++/13/ext/alloc_traits.h \
@@ -1097,6 +1103,7 @@ CMakeFiles/HanoiGame.dir/src/main.cpp.o: /home/vdani/hanoi-game/src/main.cpp \
   /usr/include/c++/13/pstl/execution_defs.h \
   /usr/include/c++/13/pstl/glue_algorithm_defs.h \
   /usr/include/c++/13/pstl/pstl_config.h \
+  /usr/include/c++/13/stack \
   /usr/include/c++/13/stdexcept \
   /usr/include/c++/13/streambuf \
   /usr/include/c++/13/string \
